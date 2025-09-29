@@ -1,0 +1,51 @@
+.table-header {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.table-cell {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.no-users-cell {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.save-button {
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.cancel-button {
+    padding: 5px;
+    background-color: #9E9E9E;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button {
+    padding: 5px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.delete-button {
+    padding: 5px;
+    background-color: #F44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
