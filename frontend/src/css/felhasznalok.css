@@ -1,7 +1,7 @@
 .table-header {
     border: 1px solid #ccc;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #000000;
 }
 
 .table-cell {
@@ -48,4 +48,12 @@
     color: white;
     border: none;
     cursor: pointer;
+}
+
+#cell-column {
+    column-span: 5;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
 }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../css/felhasznalok.css';
 
 function Felhasznalok() {
+
     // State változók
     const [users, setUsers] = useState([]); // Felhasználók listája
     const [editingId, setEditingId] = useState(null); // Szerkesztés alatt álló felhasználó ID
@@ -26,7 +27,7 @@ function Felhasznalok() {
     return (
         <div>
             <h2>Felhasználók Listája</h2>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <table>
                 <thead>
                     <tr>
                         <th className="table-header">#ID</th>
@@ -85,7 +86,7 @@ function Felhasznalok() {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="5" className="no-users-cell">Nincsenek felhasználók az adatbázisban.</td>
+                            <td id='cell-column' className="no-users-cell">Nincsenek felhasználók az adatbázisban.</td>
                         </tr>
                     )}
                 </tbody>

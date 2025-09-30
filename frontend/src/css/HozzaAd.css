@@ -1,0 +1,12 @@
+.form-class{
+    margin-bottom: '30px';
+    border: '1px solid #ccc';
+    padding: '15px';
+}
+.input-class{
+    margin-right: '10px';
+    padding: '5px'
+}
+.button-class{
+    padding: '5px 10px'
+}
