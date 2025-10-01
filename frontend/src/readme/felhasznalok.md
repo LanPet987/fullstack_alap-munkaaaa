@@ -1,4 +1,4 @@
-Ez a fájl egy React-komponenst tartalmaz, amely a felhasználók listáját jeleníti meg, és lehetőséget biztosít a felhasználók szerkesztésére és törlésére. Az alábbiakban részletesen bemutatom a fájl működését.
+A Felhasznalok.jsx fájl egy React-komponenst tartalmaz, amely a felhasználók listáját jeleníti meg, és lehetőséget biztosít a felhasználók szerkesztésére és törlésére. Az alábbiakban részletesen bemutatom a fájl működését.
 
 1. Importálások
 import React, { useState, useEffect } from 'react';
@@ -38,7 +38,6 @@ useEffect(() => {
 -axios.get: HTTP GET kérést küld az http://localhost:3001/api/users végpontra.
 
 4. Felhasználók Listájának Megjelenítése
-
 <tbody>
     {users.length > 0 ? (
         users.map(user => (
@@ -58,9 +57,20 @@ useEffect(() => {
 -Ha nincs felhasználó, egy üzenetet jelenít meg: "Nincsenek felhasználók az adatbázisban."
 
 5. Szerkesztési Funkciók
-Szerkesztés elindítása:
+Szerkesztés Elindítása:
 
 <button onClick={() => handleEditStart(user)} className="edit-button">Szerkesztés</button>
+
+A handleEditStart függvény beállítja a szerkesztési módot:
+
+const handleEditStart = (user) => {
+    setEditingId(user.id);
+    setEditedName(user.name);
+    setEditedEmail(user.email);
+};
+
+Módosítás Mentése
+<button onClick={() => handleUpdate(user.id)} className="save-button">Mentés</button>
 
 A handleUpdate függvény elküldi a módosított adatokat az API-nak:
 
@@ -82,17 +92,22 @@ const handleUpdate = async (id) => {
     }
 };
 
-Szerkesztés megszakítása:
+Szerkesztés Megszakítása:
 
 <button onClick={handleEditCancel} className="cancel-button">Mégse</button>
 
-6. Felhasználó Törlése
+A handleEditCancel visszaállítja az állapotot:
 
+const handleEditCancel = () => {
+    setEditingId(null);
+};
+
+6. Felhasználó Törlése
 <button onClick={() => handleDelete(user.id)} className="delete-button">Törlés</button>
 
 A handleDelete függvény törli a felhasználót az API-ból:
-const handleDelete = async (id) => {
 
+const handleDelete = async (id) => {
     if (!window.confirm(`Biztosan törölni szeretnéd a(z) ${id} ID-jű felhasználót?`)) {
         return;
     }
@@ -105,11 +120,13 @@ const handleDelete = async (id) => {
 };
 
 7. Táblázat Stílusai
+
 A táblázat oszlopai és gombjai CSS osztályokkal vannak formázva, például:
 
 -.table-header: A táblázat fejlécének stílusa.
 -.table-cell: Az egyes cellák stílusa.
 -.edit-button, .save-button, .delete-button: A gombok stílusai.
 
-Összegzés:
-A felhasznalok.jsx fájl egy dinamikus React-komponens, amely CRUD (Create, Read, Update, Delete) műveleteket valósít meg a felhasználók kezelésére. A kód jól strukturált, és a React hook-okat hatékonyan használja az állapotkezeléshez és az API-hívásokhoz.
+8. Összegzés
+
+A Felhasznalok.jsx fájl egy dinamikus React-komponens, amely CRUD (Create, Read, Update, Delete) műveleteket valósít meg a felhasználók kezelésére. A kód jól strukturált, és a React hook-okat hatékonyan használja az állapotkezeléshez és az API-hívásokhoz. A táblázat dinamikusan jeleníti meg a felhasználókat, és lehetőséget biztosít a szerkesztésre és törlésre.
