@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'; 
+import './App.css';
 import Navbar from './components/navbar';
 import Felhasznalok from './components/felhasznalok';
 import HozzaAd from './components/HozzaAd';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
     };
 
     useEffect(() => {
-        fetchData(); 
+        fetchData();
     }, []);
 
     // Feltételes renderelés: Betöltés és Hiba
@@ -44,10 +44,14 @@ function App() {
     return (
         <div className="App">
             <Navbar />
-            <HozzaAd/>
-            <Felhasznalok />
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Felhasznalok />} />
+                    <Route path='/add' element={<HozzaAd />} />
+                </Routes>
+            </BrowserRouter>
 
         </div>
     );
-} 
+}
 export default App;
